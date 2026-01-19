@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .upload-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .upload-area {
+            border: 3px dashed #ff6b6b;
+            border-radius: 15px;
+            padding: 60px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+        }
+
+        .upload-area:hover {
+            border-color: #4ecdc4;
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            transform: translateY(-5px);
+        }
+
+        .upload-area.dragover {
+            border-color: #4ecdc4;
+            background: linear-gradient(45deg, #d299c2 0%, #fef9d7 100%);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .upload-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .analysis-dashboard {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .score-number {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .analysis-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .analysis-card h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-found {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+
+        .skill-missing {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .suggestion-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .section-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Resume Analyzer</h1>
+            <p>Get instant ATS score and improvement suggestions</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div>
+                    <h3>📄 Upload Your Resume</h3>
+                    <p>Drag & drop your resume here or click to browse</p>
+                    <input type="file" id="fileInput" accept=".txt,.doc,.docx,.pdf">
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        Choose File
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis-dashboard" id="dashboard">
+            <div class="score-card">
+                <h3>ATS Compatibility Score</h3>
+                <div class="score-number" id="atsScore">0</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="scoreProgress"></div>
+                </div>
+                <p>Higher scores increase interview chances</p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>📊 Resume Analysis</h3>
+                <div id="resumeStats">
+                    <p><strong>Total Words:</strong> <span id="wordCount">0</span></p>
+                    <p><strong>Sections Found:</strong> <span id="sectionCount">0</span></p>
+                    <p><strong>Keywords Matched:</strong> <span id="keywordCount">0</span></p>
+                    <p><strong>Improvement Areas:</strong> <span id="improvementCount">0</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-analysis" id="sectionAnalysis" style="display: none;">
+            <div class="analysis-card">
+                <h3>✅ Skills Found</h3>
+                <div id="skillsFound"></div>
+            </div>
+
+            <div class="analysis-card">
+                <h3>❌ Missing Skills</h3>
+                <div id="skillsMissing"></div>
+            </div>
+
+            <div class="analysis-card">
+                <h3>💡 Suggestions</h3>
+                <div id="suggestions"></div>
+            </div>
+
+            <div class="analysis-card">
+                <h3>📈 Section Breakdown</h3>
+                <div id="sectionBreakdown"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ATS Keywords database
+        const atsKeywords = {
+            technical: ['JavaScript', 'Python', 'React', 'Node.js', 'SQL', 'AWS', 'Git', 'HTML', 'CSS', 'Java', 'C++', 'Angular', 'Vue.js', 'Docker', 'Kubernetes', 'MongoDB', 'PostgreSQL', 'Redis', 'GraphQL', 'TypeScript'],
+            soft: ['Leadership', 'Communication', 'Teamwork', 'Problem-solving', 'Critical thinking', 'Adaptability', 'Time management', 'Project management', 'Collaboration', 'Innovation'],
+            business: ['Strategy', 'Analytics', 'Marketing', 'Sales', 'Customer service', 'Business development', 'Data analysis', 'Market research', 'Budget management', 'Stakeholder management'],
+            certifications: ['PMP', 'AWS Certified', 'Google Analytics', 'Scrum Master', 'Six Sigma', 'CISSP', 'CompTIA', 'Microsoft Certified', 'Oracle Certified', 'Salesforce Certified']
+        };
+
+        const commonSections = ['Experience', 'Education', 'Skills', 'Projects', 'Certifications', 'Summary', 'Objective', 'Awards', 'Publications', 'Volunteer'];
+
+        let resumeText = '';
+        let analysisResults = {};
+
+        // File upload handling
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const dashboard = document.getElementById('dashboard');
+        const sectionAnalysis = document.getElementById('sectionAnalysis');
+
+        // Drag and drop events
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                resumeText = e.target.result;
+                analyzeResume();
+                showDashboard();
+            };
+            
+            if (file.type.includes('text')) {
+                reader.readAsText(file);
+            } else {
+                // For demo purposes, we'll simulate text extraction
+                resumeText = generateSampleResume();
+                analyzeResume();
+                showDashboard();
+            }
+        }
+
+        function generateSampleResume() {
+            return `
+John Doe
+Software Developer
+
+SUMMARY
+Experienced software developer with 5 years of experience in web development.
+Skilled in JavaScript, React, and Node.js. Strong problem-solving and leadership skills.
+
+EXPERIENCE
+Senior Developer - Tech Corp (2020-Present)
+- Developed React applications
+- Led team of 5 developers
+- Implemented CI/CD pipelines using Docker
+- Worked with AWS and MongoDB
+
+Junior Developer - StartupXYZ (2018-2020)
+- Built responsive websites using HTML, CSS, JavaScript
+- Collaborated with cross-functional teams
+- Participated in agile development process
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology (2014-2018)
+
+SKILLS
+Technical: JavaScript, React, Node.js, Python, SQL, Git, AWS
+Soft Skills: Leadership, Communication, Problem-solving, Teamwork
+
+CERTIFICATIONS
+AWS Certified Developer
+Scrum Master Certification
+            `;
+        }
+
+        function analyzeResume() {
+            const words = resumeText.split(/\s+/).length;
+            const foundSkills = findSkills();
+            const missingSks = findMissingSkills(foundSkills);
+            const sections = findSections();
+            const score = calculateATSScore(foundSkills, sections, words);
+
+            analysisResults = {
+                wordCount: words,
+                foundSkills,
+                missingSkills: missingSks,
+                sections,
+                score,
+                suggestions: generateSuggestions(foundSkills, missingSks, sections)
+            };
+        }
+
+        function findSkills() {
+            const found = {
+                technical: [],
+                soft: [],
+                business: [],
+                certifications: []
+            };
+
+            Object.keys(atsKeywords).forEach(category => {
+                atsKeywords[category].forEach(skill => {
+                    if (resumeText.toLowerCase().includes(skill.toLowerCase())) {
+                        found[category].push(skill);
+                    }
+                });
+            });
+
+            return found;
+        }
+
+        function findMissingSkills(foundSkills) {
+            const missing = {
+                technical: [],
+                soft: [],
+                business: [],
+                certifications: []
+            };
+
+            Object.keys(atsKeywords).forEach(category => {
+                atsKeywords[category].forEach(skill => {
+                    if (!foundSkills[category].includes(skill)) {
+                        missing[category].push(skill);
+                    }
+                });
+            });
+
+            // Return top 5 missing skills per category
+            Object.keys(missing).forEach(category => {
+                missing[category] = missing[category].slice(0, 5);
+            });
+
+            return missing;
+        }
+
+        function findSections() {
+            const found = [];
+            commonSections.forEach(section => {
+                const regex = new RegExp(section, 'gi');
+                if (regex.test(resumeText)) {
+                    found.push(section);
+                }
+            });
+            return found;
+        }
+
+        function calculateATSScore(foundSkills, sections, wordCount) {
+            let score = 0;
+            
+            // Skills scoring (40% of total)
+            const totalSkills = Object.values(foundSkills).flat().length;
+            score += Math.min(totalSkills * 2, 40);
+            
+            // Sections scoring (30% of total)
+            score += sections.length * 5;
+            
+            // Word count scoring (20% of total)
+            if (wordCount >= 300 && wordCount <= 600) score += 20;
+            else if (wordCount >= 200) score += 15;
+            else if (wordCount >= 100) score += 10;
+            
+            // Format and structure (10% of total)
+            if (resumeText.includes('@')) score += 5; // Has email
+            if (resumeText.match(/\d{3}[-.]?\d{3}[-.]?\d{4}/)) score += 5; // Has phone
+            
+            return Math.min(Math.round(score), 100);
+        }
+
+        function generateSuggestions(foundSkills, missingSkills, sections) {
+            const suggestions = [];
+            
+            if (foundSkills.technical.length < 5) {
+                suggestions.push("Add more technical skills relevant to your field");
+            }
+            
+            if (!sections.includes('Summary') && !sections.includes('Objective')) {
+                suggestions.push("Include a professional summary or objective statement");
+            }
+            
+            if (foundSkills.soft.length < 3) {
+                suggestions.push("Highlight more soft skills like leadership and communication");
+            }
+            
+            if (!sections.includes('Projects')) {
+                suggestions.push("Add a projects section to showcase your work");
+            }
+            
+            if (foundSkills.certifications.length === 0) {
+                suggestions.push("Consider adding relevant certifications to boost credibility");
+            }
+
+            return suggestions;
+        }
+
+        function showDashboard() {
+            dashboard.style.display = 'grid';
+            sectionAnalysis.style.display = 'grid';
+            
+            // Animate score
+            animateScore();
+            updateStats();
+            displaySkills();
+            displaySuggestions();
+            displaySectionBreakdown();
+            
+            dashboard.classList.add('fade-in');
+            sectionAnalysis.classList.add('fade-in');
+        }
+
+        function animateScore() {
+            const scoreElement = document.getElementById('atsScore');
+            const progressElement = document.getElementById('scoreProgress');
+            const targetScore = analysisResults.score;
+            
+            let currentScore = 0;
+            const increment = targetScore / 50;
+            
+            const animation = setInterval(() => {
+                currentScore += increment;
+                if (currentScore >= targetScore) {
+                    currentScore = targetScore;
+                    clearInterval(animation);
+                }
+                
+                scoreElement.textContent = Math.round(currentScore);
+                progressElement.style.width = currentScore + '%';
+                
+                // Color coding
+                if (currentScore >= 80) {
+                    progressElement.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
+                } else if (currentScore >= 60) {
+                    progressElement.style.background = 'linear-gradient(45deg, #feca57, #ff9f43)';
+                } else {
+                    progressElement.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+                }
+            }, 30);
+        }
+
+        function updateStats() {
+            document.getElementById('wordCount').textContent = analysisResults.wordCount;
+            document.getElementById('sectionCount').textContent = analysisResults.sections.length;
+            document.getElementById('keywordCount').textContent = Object.values(analysisResults.foundSkills).flat().length;
+            document.getElementById('improvementCount').textContent = analysisResults.suggestions.length;
+        }
+
+        function displaySkills() {
+            const skillsFoundElement = document.getElementById('skillsFound');
+            const skillsMissingElement = document.getElementById('skillsMissing');
+            
+            // Display found skills
+            let foundHTML = '';
+            Object.keys(analysisResults.foundSkills).forEach(category => {
+                if (analysisResults.foundSkills[category].length > 0) {
+                    foundHTML += `<h4>${category.charAt(0).toUpperCase() + category.slice(1)}</h4>`;
+                    analysisResults.foundSkills[category].forEach(skill => {
+                        foundHTML += `<span class="skill-tag skill-found">${skill}</span>`;
+                    });
+                }
+            });
+            skillsFoundElement.innerHTML = foundHTML || '<p>No skills detected. Consider adding relevant skills to your resume.</p>';
+            
+            // Display missing skills
+            let missingHTML = '';
+            Object.keys(analysisResults.missingSkills).forEach(category => {
+                if (analysisResults.missingSkills[category].length > 0) {
+                    missingHTML += `<h4>Recommended ${category.charAt(0).toUpperCase() + category.slice(1)}</h4>`;
+                    analysisResults.missingSkills[category].forEach(skill => {
+                        missingHTML += `<span class="skill-tag skill-missing">${skill}</span>`;
+                    });
+                }
+            });
+            skillsMissingElement.innerHTML = missingHTML;
+        }
+
+        function displaySuggestions() {
+            const suggestionsElement = document.getElementById('suggestions');
+            let suggestionsHTML = '';
+            
+            analysisResults.suggestions.forEach(suggestion => {
+                suggestionsHTML += `<div class="suggestion-item">${suggestion}</div>`;
+            });
+            
+            suggestionsElement.innerHTML = suggestionsHTML;
+        }
+
+        function displaySectionBreakdown() {
+            const breakdownElement = document.getElementById('sectionBreakdown');
+            let breakdownHTML = '<h4>Sections Present:</h4>';
+            
+            analysisResults.sections.forEach(section => {
+                breakdownHTML += `<span class="skill-tag skill-found">${section}</span>`;
+            });
+            
+            breakdownHTML += '<h4 style="margin-top: 20px;">Missing Sections:</h4>';
+            const missingSections = commonSections.filter(section => !analysisResults.sections.includes(section));
+            missingSections.slice(0, 5).forEach(section => {
+                breakdownHTML += `<span class="skill-tag skill-missing">${section}</span>`;
+            });
+            
+            breakdownElement.innerHTML = breakdownHTML;
+        }
+    </script>
+</body>
+</html>

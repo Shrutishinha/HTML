@@ -1,75 +1,79 @@
 Resume Analyzer
-Frontend Resume Evaluation System (HTML • CSS • JavaScript)
-📌 Project Overview
 
-Resume Analyzer is a lightweight, browser-based web application developed using HTML, CSS, and Vanilla JavaScript. The system performs client-side, rule-based resume analysis to identify technical skills, evaluate keyword relevance, and generate structured feedback.
+Frontend Resume Evaluation System using HTML, CSS, and JavaScript
 
-The application is fully frontend-based and does not rely on backend servers, artificial intelligence, machine learning, or third-party libraries. All processing occurs locally within the user’s browser, ensuring privacy, security, and offline accessibility.
+Project Overview
 
-This project demonstrates strong fundamentals in frontend engineering, client-side data handling, and UI development.
+Resume Analyzer is a browser-based web application developed using HTML, CSS, and Vanilla JavaScript. The system performs client-side, rule-based resume analysis to identify technical skills, evaluate keyword relevance, and generate structured feedback.
 
-🚀 Core Features
+The application operates entirely on the client side and does not rely on backend services, artificial intelligence, machine learning models, or external libraries. All processing is performed locally in the user's browser, ensuring data privacy, security, and offline accessibility.
 
-Complete frontend implementation (no backend required)
+This project demonstrates strong proficiency in frontend development, user interface design, and client-side data processing.
 
-Resume upload and manual text input
+Key Features
+
+Fully frontend-based implementation
+
+No server-side dependency
+
+Resume upload and text input support
 
 Keyword-based skill detection
 
 ATS-oriented screening logic
 
-Automated resume scoring system
+Automated scoring mechanism
 
-Personalized improvement suggestions
+Improvement recommendations
 
 Responsive and accessible interface
 
-Offline functionality
+Offline usability
 
 Secure local processing
 
-⚙️ System Architecture & Workflow
+System Architecture and Workflow
 
-The resume analysis process is implemented using deterministic JavaScript logic:
+The resume analysis is implemented using deterministic JavaScript logic as follows:
 
-Resume files are loaded using the FileReader API
+Resume content is loaded using the FileReader API
 
-Input text is normalized and preprocessed
+Text is normalized through preprocessing techniques
 
 Predefined skill dictionaries are applied
 
-Keyword matching is performed
+Keyword matching algorithms are executed
 
 Scores are computed based on weighted metrics
 
-Gaps and improvement areas are identified
+Skill gaps and improvement areas are identified
 
 Results are rendered dynamically on the interface
 
-This architecture emphasizes performance, simplicity, and transparency.
+This architecture ensures transparency, performance, and maintainability.
 
-🛠️ Technology Stack
+Technology Stack
 Technology	Purpose
 HTML5	Semantic structure
 CSS3	Layout and responsive design
 JavaScript (ES6)	Business logic and interactivity
 FileReader API	Resume file processing
-📁 Project Structure
+Project Structure
 resume-analyzer/
 │
 ├── index.html        # Application interface
-├── style.css         # UI styling
+├── style.css         # Styling and layout
 ├── script.js         # Analysis engine
 ├── assets/           # Media resources
 └── README.md         # Documentation
 
-📊 Skill Evaluation Framework
+Skill Evaluation Framework
 
-The system evaluates resumes based on configurable keyword libraries, including:
+The system evaluates resumes using configurable keyword libraries, including:
 
 Web Technologies: HTML, CSS, JavaScript
 
-Frameworks: React (keyword detection)
+Frameworks: React (keyword-based detection)
 
 Programming Languages: Java, Python
 
@@ -77,71 +81,70 @@ Databases: SQL, MongoDB
 
 Version Control: Git, GitHub
 
-Data Structures & Algorithms (basic terms)
+Data Structures and Algorithms (basic concepts)
 
-Evaluation parameters and scoring logic are configurable in script.js.
+Evaluation rules and scoring parameters can be modified in script.js.
 
-▶️ Installation & Usage
-Step 1: Clone Repository
+Installation and Usage
+Step 1: Clone the Repository
 git clone https://github.com/your-username/resume-analyzer.git
 
-Step 2: Navigate to Directory
+Step 2: Navigate to the Project Directory
 cd resume-analyzer
 
-Step 3: Launch Application
+Step 3: Launch the Application
 
-Open index.html in a modern web browser.
+Open index.html in any modern web browser.
 
-No additional dependencies or configurations are required.
+No additional setup, dependencies, or configuration is required.
 
-🎯 Target Audience & Applications
+Intended Use
 
-Frontend development learners
+Frontend development practice
 
-Engineering students
-
-Academic project submissions
+Academic and mini-project submissions
 
 Portfolio demonstration
 
+Client-side file handling learning
+
 Technical skill assessment prototypes
 
-Interview preparation tools
+Interview preparation support
 
-⚠️ System Limitations
+Limitations
 
-Rule-based keyword matching only
+Keyword-based evaluation only
 
-No semantic analysis
+No semantic or contextual analysis
 
-No machine learning or NLP
+No OCR support for scanned documents
 
-No OCR support
-
-Limited PDF parsing capability
+Limited PDF parsing capabilities
 
 No enterprise ATS integration
 
-🔮 Roadmap & Future Enhancements
+No machine learning or NLP support
 
-Resume-to-job description matching
+Future Enhancements
 
-Advanced PDF parsing engine
+Resume and job description comparison
 
-Custom skill profiles
+Advanced document parsing
+
+Role-specific skill profiles
 
 Downloadable evaluation reports
 
-Backend integration (Node.js / REST API)
+Backend integration using Node.js
 
-Cloud-based user profiles
+User authentication system
 
 Analytics dashboard
 
-👩‍💻 Developer
+Author
 
 Shruti
 Frontend Developer
 
-Technical Skills:
-HTML • CSS • JavaScript • Data Analysis
+Technical Skills: HTML, CSS, JavaScript, Data Analysis

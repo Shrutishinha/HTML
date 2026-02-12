@@ -1,147 +1,147 @@
 Resume Analyzer
+Frontend Resume Evaluation System (HTML • CSS • JavaScript)
+📌 Project Overview
 
-Frontend Project using HTML, CSS, and JavaScript
+Resume Analyzer is a lightweight, browser-based web application developed using HTML, CSS, and Vanilla JavaScript. The system performs client-side, rule-based resume analysis to identify technical skills, evaluate keyword relevance, and generate structured feedback.
 
-Overview
+The application is fully frontend-based and does not rely on backend servers, artificial intelligence, machine learning, or third-party libraries. All processing occurs locally within the user’s browser, ensuring privacy, security, and offline accessibility.
 
-Resume Analyzer is a browser-based web application built using HTML, CSS, and Vanilla JavaScript. The application performs client-side, keyword-based resume analysis to evaluate technical skill presence and provide basic improvement suggestions.
+This project demonstrates strong fundamentals in frontend engineering, client-side data handling, and UI development.
 
-All processing is performed locally in the user’s browser. The system does not use any backend services, artificial intelligence, machine learning, or external libraries.
+🚀 Core Features
 
-This project is designed to demonstrate frontend development skills, JavaScript logic, and client-side file handling.
+Complete frontend implementation (no backend required)
 
-Key Features
-
-Fully frontend-based application
-
-No backend or server dependency
-
-Resume upload and text input support
+Resume upload and manual text input
 
 Keyword-based skill detection
 
-Basic resume scoring system
+ATS-oriented screening logic
 
-ATS-oriented keyword evaluation
+Automated resume scoring system
 
-Improvement suggestions
+Personalized improvement suggestions
 
-Clean and responsive user interface
+Responsive and accessible interface
 
 Offline functionality
 
-How the Resume Analysis Works
+Secure local processing
 
-The resume analysis is implemented using rule-based and deterministic logic in JavaScript.
+⚙️ System Architecture & Workflow
 
-Resume content is loaded using the FileReader API
+The resume analysis process is implemented using deterministic JavaScript logic:
 
-Text is normalized (lowercase conversion and symbol removal)
+Resume files are loaded using the FileReader API
 
-Keywords are matched against predefined skill sets
+Input text is normalized and preprocessed
 
-A score is calculated based on matched keywords
+Predefined skill dictionaries are applied
 
-Missing or weak skill areas are identified
+Keyword matching is performed
 
-Results are dynamically displayed in the UI
+Scores are computed based on weighted metrics
 
-This approach demonstrates core JavaScript concepts such as string processing, conditional logic, and DOM manipulation.
+Gaps and improvement areas are identified
 
-Technology Stack
+Results are rendered dynamically on the interface
+
+This architecture emphasizes performance, simplicity, and transparency.
+
+🛠️ Technology Stack
 Technology	Purpose
-HTML5	Structure and layout
-CSS3	Styling and responsiveness
-JavaScript (ES6)	Analysis logic and UI updates
-FileReader API	Resume file reading
-Project Structure
+HTML5	Semantic structure
+CSS3	Layout and responsive design
+JavaScript (ES6)	Business logic and interactivity
+FileReader API	Resume file processing
+📁 Project Structure
 resume-analyzer/
 │
-├── index.html        # Main user interface
-├── style.css         # Styling and layout
-├── script.js         # Resume analysis logic
-├── assets/           # Images and icons
-└── README.md         # Project documentation
+├── index.html        # Application interface
+├── style.css         # UI styling
+├── script.js         # Analysis engine
+├── assets/           # Media resources
+└── README.md         # Documentation
 
-Skills Evaluated
+📊 Skill Evaluation Framework
 
-The following technical skills are evaluated using keyword matching:
+The system evaluates resumes based on configurable keyword libraries, including:
 
-HTML, CSS, JavaScript
+Web Technologies: HTML, CSS, JavaScript
 
-React (keyword-based detection)
+Frameworks: React (keyword detection)
 
-Java, Python
+Programming Languages: Java, Python
 
-SQL, MongoDB
+Databases: SQL, MongoDB
 
-Git and GitHub
+Version Control: Git, GitHub
 
-Basic Data Structures concepts
+Data Structures & Algorithms (basic terms)
 
-Skill lists and scoring weights can be customized in script.js.
+Evaluation parameters and scoring logic are configurable in script.js.
 
-Running the Project Locally
-Step 1: Clone the Repository
+▶️ Installation & Usage
+Step 1: Clone Repository
 git clone https://github.com/your-username/resume-analyzer.git
 
-Step 2: Navigate to the Project Folder
+Step 2: Navigate to Directory
 cd resume-analyzer
 
-Step 3: Open the Application
+Step 3: Launch Application
 
-Open index.html in any modern web browser.
+Open index.html in a modern web browser.
 
-No installation or setup is required.
+No additional dependencies or configurations are required.
 
-No dependencies
+🎯 Target Audience & Applications
 
-No configuration
+Frontend development learners
 
-Works offline
+Engineering students
 
-Intended Use
+Academic project submissions
 
-Frontend development practice
+Portfolio demonstration
 
-Academic or mini-project submission
+Technical skill assessment prototypes
 
-Learning client-side file handling
+Interview preparation tools
 
-Demonstrating JavaScript logic and UI skills
+⚠️ System Limitations
 
-Portfolio project for beginner to intermediate developers
+Rule-based keyword matching only
 
-Limitations
-
-Keyword-based analysis only
-
-No semantic or contextual understanding
-
-No OCR support for scanned resumes
-
-No real ATS integration
+No semantic analysis
 
 No machine learning or NLP
 
-Limited PDF text extraction
+No OCR support
 
-Future Enhancements
+Limited PDF parsing capability
 
-Resume and job description comparison
+No enterprise ATS integration
 
-Improved PDF text extraction
+🔮 Roadmap & Future Enhancements
 
-Role-based skill selection
+Resume-to-job description matching
 
-Downloadable analysis reports
+Advanced PDF parsing engine
 
-Backend integration using Node.js
+Custom skill profiles
 
-User profile management
+Downloadable evaluation reports
 
-Author
+Backend integration (Node.js / REST API)
+
+Cloud-based user profiles
+
+Analytics dashboard
+
+👩‍💻 Developer
 
 Shruti
 Frontend Developer
-Skills: HTML, CSS, JavaScript, Data Analysis
+
+Technical Skills:
+HTML • CSS • JavaScript • Data Analysis

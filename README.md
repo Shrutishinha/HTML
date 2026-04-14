@@ -1,6 +1,14 @@
+<!-- 🔥 TOP WAVE -->
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,100:38bdf8&height=200&section=header&animation=fadeIn" />
+
+<!-- ⚡ TYPING HEADER -->
+
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=2500&pause=800&color=0A66C2&center=true&vCenter=true&width=950&lines=RESUME+ANALYZER;FRONTEND+RESUME+EVALUATION+SYSTEM;CLIENT+SIDE+PROCESSING+ONLY;BUILT+USING+HTML+CSS+JAVASCRIPT;SECURE+FAST+OFFLINE+READY" />
 </p>
+
+<!-- 🧠 BADGES -->
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-STRUCTURE-orange?style=for-the-badge&logo=html5" />
@@ -12,46 +20,48 @@
 
 ---
 
+<img src="https://user-images.githubusercontent.com/74038190/212284126-0f9c6b52-8c35-4c63-8b8b-9c8c8f9c0c3b.gif" width="100%">
+
 # 🚀 RESUME ANALYZER
 
-A FULLY FRONTEND-BASED RESUME EVALUATION SYSTEM DEVELOPED USING HTML5, CSS3, AND VANILLA JAVASCRIPT (ES6).
-
-THIS APPLICATION PERFORMS CLIENT-SIDE RULE-BASED RESUME ANALYSIS TO:
-
-- IDENTIFY TECHNICAL SKILLS  
-- EVALUATE ATS COMPATIBILITY  
-- GENERATE STRUCTURED FEEDBACK  
-- PROVIDE IMPROVEMENT RECOMMENDATIONS  
-
-ALL PROCESSING IS EXECUTED LOCALLY IN THE USER'S BROWSER.
-
-NO SERVER.  
-NO DATABASE.  
-NO AI MODELS.  
-NO EXTERNAL LIBRARIES.  
+A FULLY FRONTEND-BASED RESUME EVALUATION SYSTEM BUILT USING HTML5, CSS3, AND VANILLA JAVASCRIPT.
 
 ---
 
-# 📌 PROJECT OVERVIEW
+## 🎥 LIVE DEMO
 
-RESUME ANALYZER IS DESIGNED TO DEMONSTRATE:
+<p align="center">
+  <img src="./assets/demo.gif" width="800"/>
+</p>
 
-- FRONTEND DEVELOPMENT EXPERTISE  
-- CLIENT-SIDE FILE HANDLING  
-- DYNAMIC DOM MANIPULATION  
-- RULE-BASED DATA PROCESSING  
-- RESPONSIVE UI DESIGN  
-
-THE SYSTEM ENSURES:
-
-✔ DATA PRIVACY  
-✔ OFFLINE ACCESSIBILITY  
-✔ HIGH PERFORMANCE  
-✔ ZERO DATA TRANSMISSION  
+<p align="center">
+  <i>Real-time Resume Analysis with Dynamic Feedback</i>
+</p>
 
 ---
 
-# ⚙️ SYSTEM CAPABILITIES
+<img src="https://user-images.githubusercontent.com/74038190/212284126-0f9c6b52-8c35-4c63-8b8b-9c8c8f9c0c3b.gif" width="100%">
+
+## 📌 PROJECT OVERVIEW
+
+RESUME ANALYZER IS DESIGNED TO:
+
+✔ ANALYZE RESUMES USING CLIENT-SIDE LOGIC
+✔ DETECT TECHNICAL SKILLS
+✔ EVALUATE ATS COMPATIBILITY
+✔ PROVIDE STRUCTURED FEEDBACK
+
+---
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?size=18&duration=2000&color=0A66C2&center=true&width=500&lines=Secure+%7C+Fast+%7C+Offline;No+Server+%7C+No+Database;100%25+Client+Side+Processing" />
+</p>
+
+---
+
+<img src="https://user-images.githubusercontent.com/74038190/212284126-0f9c6b52-8c35-4c63-8b8b-9c8c8f9c0c3b.gif" width="100%">
+
+## ⚙️ SYSTEM CAPABILITIES
 
 ```
 RESUME UPLOAD            ██████████████ 100%
@@ -64,238 +74,96 @@ UI RESPONSIVENESS        ████████████░░  90%
 
 ---
 
-# ⭐ KEY FEATURES
+## ⭐ KEY FEATURES
 
-- FULLY FRONTEND-BASED IMPLEMENTATION  
-- NO SERVER-SIDE DEPENDENCY  
-- RESUME FILE UPLOAD SUPPORT  
-- TEXT INPUT SUPPORT  
-- KEYWORD-BASED SKILL DETECTION  
-- ATS-ORIENTED SCREENING LOGIC  
-- AUTOMATED SCORING MECHANISM  
-- IMPROVEMENT RECOMMENDATIONS  
-- RESPONSIVE DESIGN  
-- SECURE LOCAL PROCESSING  
+* FULLY FRONTEND-BASED IMPLEMENTATION
+* NO SERVER-SIDE DEPENDENCY
+* RESUME FILE UPLOAD SUPPORT
+* KEYWORD-BASED SKILL DETECTION
+* ATS-ORIENTED SCREENING
+* AUTOMATED SCORING
+* RESPONSIVE DESIGN
 
 ---
 
-# 🏗 SYSTEM ARCHITECTURE
+<img src="https://user-images.githubusercontent.com/74038190/212284126-0f9c6b52-8c35-4c63-8b8b-9c8c8f9c0c3b.gif" width="100%">
 
-THE APPLICATION FOLLOWS A STRUCTURED CLIENT-SIDE PIPELINE.
+## 🏗 SYSTEM ARCHITECTURE
 
-## 🔄 WORKFLOW
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212285025-6dfb5c9b-9d0d-4a9f-8f62-86e1b8c6cbd4.gif" width="500"/>
+</p>
 
 ```
-+----------------------+
-|     RESUME UPLOAD    |
-+----------------------+
-            |
-            v
-+----------------------+
-|    FILE READER API   |
-+----------------------+
-            |
-            v
-+----------------------+
-|   TEXT NORMALIZATION |
-+----------------------+
-            |
-            v
-+----------------------+
-| KEYWORD MATCH ENGINE |
-+----------------------+
-            |
-            v
-+----------------------+
-|   WEIGHTED SCORING   |
-+----------------------+
-            |
-            v
-+----------------------+
-|  SKILL GAP ANALYSIS  |
-+----------------------+
-            |
-            v
-+----------------------+
-|   RESULT RENDERING   |
-+----------------------+
+RESUME → FILE READER → TEXT PROCESSING → KEYWORD MATCH → SCORING → OUTPUT
 ```
 
-### PROCESS DESCRIPTION
+---
 
-- RESUME CONTENT IS LOADED USING FILE READER API  
-- TEXT IS NORMALIZED AND CLEANED  
-- PREDEFINED SKILL DICTIONARIES ARE APPLIED  
-- KEYWORD MATCHING ALGORITHMS EXECUTE  
-- SCORES ARE CALCULATED USING WEIGHTED METRICS  
-- SKILL GAPS ARE IDENTIFIED  
-- RESULTS ARE RENDERED DYNAMICALLY  
+## 🛠 TECHNOLOGY STACK
 
-THIS ARCHITECTURE ENSURES TRANSPARENCY, PERFORMANCE, AND MAINTAINABILITY.
+| TECHNOLOGY      | PURPOSE          |
+| --------------- | ---------------- |
+| HTML5           | STRUCTURE        |
+| CSS3            | STYLING          |
+| JAVASCRIPT      | LOGIC            |
+| FILE READER API | LOCAL PROCESSING |
 
 ---
 
-# 🛠 TECHNOLOGY STACK
+<img src="https://user-images.githubusercontent.com/74038190/212284126-0f9c6b52-8c35-4c63-8b8b-9c8c8f9c0c3b.gif" width="100%">
 
-| TECHNOLOGY | PURPOSE |
-|------------|----------|
-| HTML5 | SEMANTIC STRUCTURE |
-| CSS3 | RESPONSIVE LAYOUT |
-| JAVASCRIPT (ES6) | BUSINESS LOGIC |
-| FILE READER API | LOCAL FILE PROCESSING |
-
----
-
-# 📂 PROJECT STRUCTURE
-
-<details>
-<summary>CLICK TO EXPAND PROJECT STRUCTURE</summary>
+## 📂 PROJECT STRUCTURE
 
 ```
 resume-analyzer/
-│
-├── index.html        # APPLICATION INTERFACE
-├── style.css         # UI DESIGN
-├── script.js         # ANALYSIS ENGINE
-├── assets/           # MEDIA RESOURCES
-└── README.md         # DOCUMENTATION
-```
-
-</details>
-
----
-
-# 🧠 SKILL EVALUATION FRAMEWORK
-
-THE SYSTEM USES CONFIGURABLE KEYWORD LIBRARIES INCLUDING:
-
-### WEB TECHNOLOGIES
-HTML  
-CSS  
-JAVASCRIPT  
-
-### FRAMEWORKS
-REACT  
-
-### PROGRAMMING LANGUAGES
-JAVA  
-PYTHON  
-
-### DATABASES
-SQL  
-MONGODB  
-
-### VERSION CONTROL
-GIT  
-GITHUB  
-
-### FUNDAMENTALS
-DATA STRUCTURES  
-ALGORITHMS  
-
-SCORING PARAMETERS CAN BE MODIFIED DIRECTLY IN:
-
-```
-script.js
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+└── README.md
 ```
 
 ---
 
-# 🚀 INSTALLATION AND USAGE
-
-## STEP 1 — CLONE REPOSITORY
+## 🚀 INSTALLATION
 
 ```bash
 git clone https://github.com/your-username/resume-analyzer.git
-```
-
-## STEP 2 — NAVIGATE TO PROJECT DIRECTORY
-
-```bash
 cd resume-analyzer
 ```
 
-## STEP 3 — RUN APPLICATION
-
-OPEN:
-
-```
-index.html
-```
-
-IN ANY MODERN WEB BROWSER.
-
-NO INSTALLATION REQUIRED.  
-NO DEPENDENCIES REQUIRED.  
-NO SERVER REQUIRED.  
+OPEN `index.html` IN YOUR BROWSER
 
 ---
 
-# 🎯 INTENDED USE
+## ⚠ LIMITATIONS
 
-- FRONTEND DEVELOPMENT PRACTICE  
-- ACADEMIC PROJECT SUBMISSION  
-- PORTFOLIO SHOWCASE  
-- CLIENT-SIDE FILE HANDLING LEARNING  
-- TECHNICAL SKILL SCREENING PROTOTYPE  
-- INTERVIEW PREPARATION  
+* KEYWORD-BASED ANALYSIS
+* NO NLP / AI
+* LIMITED PDF SUPPORT
 
 ---
 
-# ⚠ LIMITATIONS
+## 🔮 FUTURE SCOPE
 
-- KEYWORD-BASED ANALYSIS ONLY  
-- NO SEMANTIC UNDERSTANDING  
-- NO CONTEXTUAL NLP  
-- NO OCR FOR SCANNED DOCUMENTS  
-- LIMITED PDF PARSING  
-- NO ENTERPRISE ATS INTEGRATION  
+* JOB DESCRIPTION MATCHING
+* BACKEND INTEGRATION
+* AUTH SYSTEM
+* ANALYTICS DASHBOARD
 
 ---
 
-# 🔮 FUTURE ENHANCEMENTS
+## 👩‍💻 AUTHOR
 
-- RESUME VS JOB DESCRIPTION MATCHING  
-- ADVANCED DOCUMENT PARSING  
-- ROLE-SPECIFIC SKILL PROFILES  
-- DOWNLOADABLE REPORTS  
-- NODE.JS BACKEND INTEGRATION  
-- USER AUTHENTICATION SYSTEM  
-- ANALYTICS DASHBOARD  
-
----
-
-# 🤝 CONTRIBUTING
-
-<details>
-<summary>HOW TO CONTRIBUTE</summary>
-
-1. FORK THE REPOSITORY  
-2. CREATE A NEW BRANCH  
-3. COMMIT YOUR CHANGES  
-4. PUSH TO YOUR BRANCH  
-5. SUBMIT A PULL REQUEST  
-
-</details>
-
----
-
-# 📜 LICENSE
-
-THIS PROJECT IS LICENSED UNDER THE MIT LICENSE.
-
----
-
-# 👩‍💻 AUTHOR
-
-**SHRUTI**  
-FRONTEND DEVELOPER  
-
-TECHNICAL SKILLS:  
-HTML | CSS | JAVASCRIPT | DATA ANALYSIS  
+**SHRUTI SINHA**
 
 ---
 
 <p align="center">
-⭐ IF YOU FIND THIS PROJECT USEFUL, PLEASE GIVE IT A STAR ⭐
+⭐ IF YOU LIKE THIS PROJECT, GIVE IT A STAR ⭐
 </p>
+
+<!-- 🔥 FOOTER WAVE -->
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:38bdf8,100:0A66C2&height=120&section=footer" />
